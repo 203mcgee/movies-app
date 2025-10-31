@@ -1,0 +1,17 @@
+<%- include('../partials/header') %>
+<main class="main" id="main">
+    <h2><%= name %></h2>
+    <img src="<%= img %>" alt="gif or images of people enjoying movies">
+    <% data.forEach(movie => {%>
+        <div class="col" id="div">
+            <div class = "card h-100">
+                <div class = "card-body">
+                    <p><%= movie.title %></p>
+                    <img src="<%= movie.posterURL %>" alt="image of <%= movie.title %>">
+                </div>
+            </div>
+        </div>
+    <% }) %> 
+    
+</main>
+<%- include('../partials/footer') %>
