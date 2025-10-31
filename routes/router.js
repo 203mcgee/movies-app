@@ -16,19 +16,19 @@ router.get('/',(request,response) => {
 
 })
 
-router.use('/animation', require('./api/animationRoutes'))
-router.use('/classic', require('./api/classicRoutes'))
-router.use('/comedy',require('./api/comedyRoutes'))
-router.use('/drama',require('./api/dramaRoutes'))
-router.use('/horror',require('./api/horrorRoutes'))
-router.use('/family',require('./api/familyRoutes'))
-router.use('/mystery',require('./api/mysteryRoutes'))
-router.use('/western',require('./api/westernRoutes'))
+// router.use('/animation', require('./api/animationRoutes'))
+// router.use('/classic', require('./api/classicRoutes'))
+// router.use('/comedy',require('./api/comedyRoutes'))
+// router.use('/drama',require('./api/dramaRoutes'))
+// router.use('/horror',require('./api/horrorRoutes'))
+// router.use('/family',require('./api/familyRoutes'))
+// router.use('/mystery',require('./api/mysteryRoutes'))
+// router.use('/western',require('./api/westernRoutes'))
 
 const allRoutes = ['animation','classic','comedy','drama','horror','family','mystery','western']
 
 allRoutes.forEach(endpoint => {
-    router.use(`/${endpoint}`, require(`./api/${endpoints}Routes`))
+    router.use(`/${endpoint}`, require(`./api/${endpoint}Routes`))
 
 })
 
