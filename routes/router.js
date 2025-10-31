@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const axios = require('axios')
-//const {pagi} = require('../helpers/shortCut')
+// const {organizeRoutes} = require('../helpers/pagination')
 
 router.use(express.static('public'))
 
