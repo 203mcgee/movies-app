@@ -2,19 +2,23 @@ const express = require('express')
 const router = express.Router()
 const axios = require('axios')
 const PORT = process.env.PORT || 3000
-const {organizeMovies,meme} = require('../../helpers/pagination')
+const {pagination2,meme} = require('../../helpers/pagination')
 
 //localhost:3000/animation
 router.get('/',(req,res) => {
 
     const url = 'https://api.sampleapis.com/movies/animation'
+    const pageData = pagination2(req)
+
+    
     axios.get(url)
-        .then(resp => {
+    .then(resp => {
             const appInfo = resp.data
+            const paginatedData = appInfo.slice(pageData.start, pageData.end)
             res.render('pages/allMovies',{
                 title: "Animation Movies",
                 name: "Animation Movies",
-                data: appInfo,
+                data: paginatedData,
                 img:meme()
             })
         })

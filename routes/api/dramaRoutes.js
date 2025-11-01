@@ -5,13 +5,15 @@ const {organizeMovies,meme} = require('../../helpers/pagination')
 
 router.get('/',(req,res)=>{
     const url = 'https://api.sampleapis.com/movies/drama'
-
+    const pageData = pagination2(req)
     axios.get(url)
         .then(resp =>{
+            const appInfo = resp.data
+            const paginatedData = appInfo.slice(pageData.start, pageData.end)
             res.render('pages/allMovies',{
                 title: "Drama Movies",
                 name: "Drama Movies",
-                data: resp.data,
+                data: paginatedData,
                 img:meme()
             })
         })

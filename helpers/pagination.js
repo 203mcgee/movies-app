@@ -2,13 +2,13 @@ const express = require('express')
 const router = express.Router()
 
 
-const pagination = (obj) => {
+const pagination2 = (obj) => {
     let movie = {}
 
     const query = obj.query ? obj.query : {}
 
     let page = parseInt(query.page) || 1
-    let limit = parseInt(query.limit) || 10
+    let limit = parseInt(query.limit) || 35
 
     const start = (page - 1) * limit
     const end = page * limit
@@ -30,4 +30,4 @@ const meme = () => {
 }
 
 
-module.exports = {meme,pagination}
+module.exports = {meme,pagination2}
